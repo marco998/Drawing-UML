@@ -1,0 +1,47 @@
+<!--Template de la zone SVG-->
+
+
+{{#view createSvg}}
+	  {{#each item in model}}
+	   	{{#each item.arcs}}
+			{{#if isCompleted}}
+				{{#if isSelected}}
+	   				{{view arc x1=source.meanX y1=source.meanY x2=target.meanX y2=target.meanY style="stroke:#ADD8E6"}}
+	   			{{else}}
+	   				{{view arc x1=source.meanX y1=source.meanY x2=target.meanX y2=target.meanY}}
+	   			{{/if}}
+	   			<foreignObject {{bind-attr x=meanPositionX}} {{bind-attr y=meanPositionY}} width="75" height="20" 
+			     requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+			      <span xmlns="http://www.w3.org/1999/xhtml">{{text}}</span>
+			    </foreignObject>
+	   		{{/if}}	   		
+	  	{{/each}}
+	  	{{#each item.nodes}} 
+	  		{{#if isSelected}}
+		  		<g {{bind-attr id=id}} transform="matrix(1 0 0 1 0 0)">
+			  		{{view node id=id class="node" x=x y=y style="fill:#ADD8E6"}}
+			  		<foreignObject {{bind-attr x=textPosX}} {{bind-attr y=textPosY}} width="60" height="20" 
+				     requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+				      <span xmlns="http://www.w3.org/1999/xhtml">{{text}}</span>
+				    </foreignObject>
+				    <line {{bind-attr x1=x}} {{bind-attr x2=linePosX}}  {{bind-attr y1=linePosY}}  {{bind-attr y2=linePosY}} style="stroke-width:1px"/>
+				</g>
+		  	{{else}}
+		  		<g {{bind-attr id=id}} transform="matrix(1 0 0 1 0 0)">
+		  			{{view node id=id class="node" x=x y=y }}
+		  			<foreignObject {{bind-attr x=textPosX}} {{bind-attr y=textPosY}} width="60" height="20" 
+				     requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+				      <span xmlns="http://www.w3.org/1999/xhtml">{{text}}</span>
+				    </foreignObject>
+				    <line {{bind-attr x1=x}} {{bind-attr x2=linePosX}}  {{bind-attr y1=linePosY}}  {{bind-attr y2=linePosY}} style="stroke-width:1px"/>
+				</g>
+		  	{{/if}}
+	  	{{/each}}
+	  {{/each}}
+{{/view}}
+
+
+
+
+
+

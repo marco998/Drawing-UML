@@ -1,0 +1,97 @@
+  
+  <nav id="navbarcolor" class="navbarstyle navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img src="Logo.png" height="50" width="150" style="text-align:center;">
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fichier <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" {{action 'createGraph' store=store}}>Nouveau diagramme</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Outils <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li {{action 'saveSvg'}}><a id="export" href="#">Exporter SVG</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Aide <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li data-toggle="modal" data-target="#myModal"><a href="#">A Propos</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  
+  <div class="row">
+    <div id="zone-information" class="zone-information col-md-2">
+      <div id="panel-explorateur" class="panel-explorateur panel panel-default">
+        <div class="panel-heading">Explorateur</div>
+        <div id="explorer" class="panel-body">
+          <!-- Sera affiché l'ensemble des éléments créés sous forme d'arborescence-->
+          {{outlet listnode }}
+        </div>
+        </div>
+        {{outlet properties}}
+        <div id="copyright">
+          © Fouchet-Emeriau
+      </div>
+    </div>
+    <div id="zone-graphique" class="zone-graphique col-md-10">
+        <div id="panel-edition" class=" zone-graphique panel panel-default">
+        
+          <div id="mainPanel" class="zone-graphique panel-body">
+            <div id="suppressionmarginautomatique" class=" col-lg-1">
+              <div id="panel-tools" class="panel panel-default">
+                <div id="title-element" class=" panel-heading">Eléments</div>
+                	<div id="elements-panel" class="panel-body">
+                  <!--Sera affiché les éléments graphiques pouvant être utilisés -->
+	                     <div class="button-dessin">
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button><input type="radio" name="selectAction" value="createNode">
+                        </div>
+                        <div class="button-dessin">
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button><input type="radio" name="selectAction" value="createArc">
+                        </div>
+                        <div class="button-dessin">
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button><input type="radio" name="selectAction" value="delete">
+                        </div>
+               		</div>
+              </div>
+            </div>
+            <div id="zonesvg" class="zonesvg">
+              {{outlet svg}}
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">A propos</h4>
+      </div>
+      <div class="modal-body">
+        Application réalisée à l'aide du framework Ember JS<img src="emberjs.jpg" height="60" width="75" style="text-align:center;"><br> © Georges EMERIAU et Marc-Antoine FOUCHET
+      </div>
+    </div>
+  </div>
+</div>

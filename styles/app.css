@@ -1,0 +1,161 @@
+
+/* Put your CSS here */
+
+
+html{
+  height:100%;
+}
+body {
+  height:85%;
+  color:#337ab7;
+}
+
+.ember-application {
+  margin: 20px;
+  background-color: rgb(218, 218, 218); 
+}
+
+#mainPanel{
+  margin:0;
+  padding: 0;
+  height:100%;
+}
+
+.ember-view{
+  height: 100%;
+}
+
+#suppressionmarginautomatique{
+  padding-left:0;
+  padding-right: 0;
+  height: 100%;
+}
+
+#panel-tools{
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  border-right: 1px solid #337ab7;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-bottom: 0px;
+  height: 100%;
+}
+
+.row{
+  height:100%;
+}
+
+.zone-graphique, .zone-information{
+  height:100%;
+}
+
+#zone-information{
+  padding-right: 0px;
+}
+
+#zone-graphique{
+  padding-left: 20px;
+}
+
+.panel-propriete, .panel-explorateur{
+  height: 45%;
+}
+
+#panel-propriete{
+  margin-bottom: 0px;
+
+}
+
+#panel-explorateur{
+  margin-bottom: 20px;
+}
+
+#copyright{
+  margin-top: 15px;
+  text-align:center;
+  font-weight: bold;
+  color:#337ab7;
+
+}
+
+.properties{
+  padding-left:10px;
+  padding-right: 10px;
+}
+
+#title-element{
+  padding: 10px 15%;
+}
+
+.button-dessin {
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#navbarcolor{
+  border: 2px solid #337ab7;
+  font-color:#337ab7;
+  box-shadow: 1px 1px 3px #337ab7;
+}
+
+#panel-explorateur,#panel-propriete,#panel-edition{
+  border: 2px solid #337ab7;
+  box-shadow: 8px 8px 12px #aaa;
+
+}
+
+#panel-explorateur{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-align: left;
+}
+
+#panel-edition{
+  background-image: url("grille.jpeg");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: 1150px 600px;
+}
+
+
+.zonesvg{
+  float : left;
+  background-color: whitesmoke;
+  width: 91.65%;
+  height: 100%;
+  
+}
+
+input[type="radio"]{
+  margin-left: 10px;  
+}
+
+
+#listnode{
+  list-style: none;
+  padding-left: 0;
+}
+
+.listnode-label{
+  cursor : pointer;
+}
+
+.node{
+  cursor: move;
+}
+
+line{
+  stroke:black;
+  stroke-width:3px;
+}
+
+#textNode{
+  padding-top: 50px;
+  padding-left: 10px;
+}
+
+.modal-dialog {
+  width: 375px;
+}

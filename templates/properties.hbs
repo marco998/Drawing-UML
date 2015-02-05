@@ -1,0 +1,43 @@
+<!--Template de la boîte propriétés -->
+
+<div id="panel-propriete" class=" panel-propriete panel panel-default">
+    <div class="panel-heading">Propriétés</div>
+    <div id="properties" class="panel-body">
+        <!-- Sera affiché les propriétés d'un élément sélectionné -->
+      {{#each item in model}}
+        {{#each item.nodes}}
+          {{#if isSelected}}
+            <p>
+              Nom de classe :             
+                {{input class="form-control" type="text" name="class" value=text}}
+            </p>
+            <p>
+              Visibilité : 
+              <select class="form-control" {{action 'saveVisibility' on='mouseLeave'}}>
+                <option value="public">public</option>
+                <option value="private">private</option>
+                <option value="protected">protected</option>
+              </select>
+            </p>    
+            <p> 
+              Classe abstraite :
+              {{#if isAbstract}}
+                <input id="abstract" type="checkbox" checked {{action 'saveAbstract'}}/>
+              {{else}}
+                <input id="abstract" type="checkbox" {{action 'saveAbstract'}}/>
+              {{/if}}
+            </p>
+          {{/if}}
+        {{/each}}
+        {{#each item.arcs}}
+          {{#if isSelected}}
+            <p>
+              Noms d'association :             
+                {{input class="form-control" type="text" name="class" value=text}}
+            </p>
+          {{/if}}
+        {{/each}}
+      {{/each}}
+      
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<!--Template de la liste d'éléments de l'explorateur -->
+
+<ul id="listnode">
+	{{#each item in model}}
+  		{{#each item.nodes}}
+		    <li class="listnode-li">
+		        <span class="glyphicon glyphicon-stop" aria-hidden="true">&nbsp;</span>
+		        {{#if isSelected}}
+			        {{#view label style="color:red"}}
+			       		{{ text}}
+			       	{{/view}}
+			    {{else}}
+				    {{#view label}}
+			       		{{ text}}
+			       	{{/view}}
+			    {{/if}}
+		    </li>
+		{{/each}}
+	
+  		{{#each item.arcs}}
+		    <li class="listnode-li">
+		      <span class="glyphicon glyphicon-minus" aria-hidden="true">&nbsp; </span>
+		      {{#if isSelected}}
+			        {{#view label style="color:red"}}
+			       		{{ text}} ( {{source.text}},{{target.text}} ) 
+			       	{{/view}}
+			    {{else}}
+				    {{#view label}}
+			       		{{ text}} ( {{source.text}},{{target.text}} ) 
+			       	{{/view}}
+			    {{/if}}
+		    </li>
+		{{/each}}
+	{{/each}}
+</ul>
